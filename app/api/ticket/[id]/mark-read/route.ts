@@ -8,9 +8,9 @@ const supabase = createClient(
 
 export async function POST(
   _req: Request,
-  context: { params: Promise<{ id: string }> } // 👈 params ist Promise
+  { params }: { params: { id: string } } // ✅ KEIN Promise
 ) {
-  const { id } = await context.params; // ✅ HIER ist der Fix
+  const { id } = params; // ✅ direkt lesen
 
   if (!id) {
     return NextResponse.json(

@@ -8,11 +8,11 @@ const supabase = createClient(
 
 export async function POST(
   _req: NextRequest,
-  { params }: { params: { id: string } }
-) {
-  const ticketId = params.id;
+  context: { params: Promise<{ id: string }> }
+): Promise<Response> {
+  const { id } = await context.params;
 
-  if (!ticketId) {
+  if (!id) {
     return NextResponse.json(
       { error: "Ticket-ID fehlt" },
       { status: 400 }
@@ -22,7 +22,7 @@ export async function POST(
   const { error } = await supabase
     .from("tickets")
     .update({ has_unread_customer_message: false })
-    .eq("id", ticketId);
+    .eq("id", id);
 
   if (error) {
     console.error("mark-read error:", error);

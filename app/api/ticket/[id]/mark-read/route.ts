@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(
@@ -7,12 +7,12 @@ const supabase = createClient(
 );
 
 export async function POST(
-  _req: Request,
-  { params }: { params: { id: string } } // ✅ KEIN Promise
+  _req: NextRequest,
+  { params }: { params: { id: string } }
 ) {
-  const { id } = params; // ✅ direkt lesen
+  const ticketId = params.id;
 
-  if (!id) {
+  if (!ticketId) {
     return NextResponse.json(
       { error: "Ticket-ID fehlt" },
       { status: 400 }
@@ -22,7 +22,7 @@ export async function POST(
   const { error } = await supabase
     .from("tickets")
     .update({ has_unread_customer_message: false })
-    .eq("id", id);
+    .eq("id", ticketId);
 
   if (error) {
     console.error("mark-read error:", error);

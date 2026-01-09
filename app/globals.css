@@ -1,26 +1,541 @@
-@import "tailwindcss";
+/* =========================
+   FILTER BAR (LAYOUT)
+   ========================= */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.ticket-filter-bar {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+/* ================= PAGE ================= */
+
+.page {
+  padding: 2rem;
+  background: #0f172a;
+  min-height: 100vh;
+  color: #e5e7eb;
+  font-family: system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.page-title {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ================= TICKET LIST ================= */
+
+.ticket-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ================= TICKET ROW ================= */
+
+.ticket-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: #020617;
+  border-radius: 10px;
+  border: 1px solid #1e293b;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ticket-row:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* ================= TICKET CONTENT ================= */
+
+.ticket-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.ticket-left strong {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.ticket-meta {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+/* ================= STATUS BADGE ================= */
+
+.ticket-status {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* OFFEN */
+.ticket-status.status-offen {
+  background: rgba(59, 130, 246, 0.18);
+  color: #3b82f6;
+}
+
+/* IN BEARBEITUNG */
+.ticket-status.status-in_bearbeitung {
+  background: rgba(245, 158, 11, 0.22);
+  color: #f59e0b;
+}
+
+/* GESCHLOSSEN */
+.ticket-status.status-geschlossen {
+  background: rgba(16, 185, 129, 0.18);
+  color: #10b981;
+}
+/* =========================
+   FILTER BAR (Wrapper)
+   ========================= */
+
+.ticket-assignee-filter,
+.ticket-status-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 180px;
+}
+
+/* =========================
+   LABEL
+   ========================= */
+
+.ticket-assignee-filter-label,
+.ticket-status-filter-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+}
+
+/* =========================
+   SELECT
+   ========================= */
+
+.ticket-assignee-filter-select,
+.ticket-status-filter-select {
+  background: #020617;
+  border: 1px solid #1e293b;
+  color: #e5e7eb;
+  padding: 0.45rem 0.65rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Hover */
+.ticket-assignee-filter-select:hover,
+.ticket-status-filter-select:hover {
+  border-color: #334155;
+}
+
+/* Focus */
+.ticket-assignee-filter-select:focus,
+.ticket-status-filter-select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.4);
+}
+
+/* =========================
+   OPTION STYLE (optional)
+   ========================= */
+
+.ticket-assignee-filter-select option,
+.ticket-status-filter-select option {
+  background: #020617;
+  color: #e5e7eb;
+}
+/* =========================
+   COMPANY FILTER
+   ========================= */
+
+.ticket-company-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 220px;
+}
+
+/* =========================
+   LABEL
+   ========================= */
+
+.ticket-company-filter-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+}
+
+/* =========================
+   SEARCH INPUT
+   ========================= */
+
+.ticket-company-filter-search {
+  background: #020617;
+  border: 1px solid #1e293b;
+  color: #e5e7eb;
+  padding: 0.45rem 0.65rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ticket-company-filter-search::placeholder {
+  color: #64748b;
+}
+
+.ticket-company-filter-search:hover {
+  border-color: #334155;
+}
+
+.ticket-company-filter-search:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.4);
+}
+
+/* =========================
+   SELECT
+   ========================= */
+
+.ticket-company-filter-select {
+  background: #020617;
+  border: 1px solid #1e293b;
+  color: #e5e7eb;
+  padding: 0.45rem 0.65rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ticket-company-filter-select:hover {
+  border-color: #334155;
+}
+
+.ticket-company-filter-select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.4);
+}
+
+/* =========================
+   OPTION STYLE
+   ========================= */
+
+.ticket-company-filter-select option {
+  background: #020617;
+  color: #e5e7eb;
+}
+.ticket-badges {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* CATEGORY BADGE */
+.ticket-category {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  background: rgba(148, 163, 184, 0.15);
+  color: #e5e7eb;
+  border: 1px solid #1e293b;
+}
+/* ===== BADGE CONTAINER ===== */
+.ticket-badges {
+  display: grid;
+  grid-template-columns: 160px 200px; /* 👈 FIXE X-POSITIONEN */
+  gap: 12px;
+  align-items: center;
+  justify-items: start;
+}
+
+/* ===== STATUS BADGE ===== */
+.ticket-status {
+  width: 100%;
+  text-align: center;
+
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ===== CATEGORY BADGE ===== */
+.ticket-category {
+  width: 100%;
+  text-align: center;
+
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  background: #1f2937;
+  color: #e5e7eb;
+  border: 1px solid #334155;
+}
+/* ===== BADGE CONTAINER ===== */
+.ticket-badges {
+  display: grid;
+
+  /* ⬅️ mehr Platz + sichere X-Position */
+  grid-template-columns: 150px 220px;
+
+  /* ⬅️ mehr Abstand zwischen den Badges */
+  column-gap: 100px;
+
+  align-items: center;
+  justify-items: start;
+
+  /* ⬅️ schiebt alles leicht nach links */
+  margin-right: 24px;
+}
+
+/* ===== STATUS BADGE ===== */
+.ticket-status {
+  width: 100%;
+  text-align: center;
+}
+
+/* ===== CATEGORY BADGE ===== */
+.ticket-category {
+  width: 100%;
+  text-align: center;
+}
+.ticket-badges {
+  display: grid;
+  grid-template-columns: 
+    150px   /* Status */
+    220px   /* Kategorie */
+    140px   /* Priorität */
+    160px;  /* Bearbeiter */
+
+  column-gap: 20px;
+  align-items: center;
+  justify-items: start;
+  margin-right: 32px;
+}
+.ticket-priority {
+  width: 100%;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+.priority-niedrig {
+  background: rgba(100, 116, 139, 0.25);
+  color: #cbd5f5;
+}
+
+.priority-normal {
+  background: rgba(59, 130, 246, 0.25);
+  color: #60a5fa;
+}
+
+.priority-hoch {
+  background: rgba(245, 158, 11, 0.3);
+  color: #fbbf24;
+}
+
+.priority-kritisch {
+  background: rgba(239, 68, 68, 0.3);
+  color: #f87171;
+}
+.ticket-assignee {
+  width: 100%;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-align: center;
+
+  background: rgba(148, 163, 184, 0.18);
+  color: #e5e7eb;
+}
+/* =========================
+   BADGE GRID (Tabellenlayout)
+   ========================= */
+
+.ticket-badges-grid {
+  display: grid;
+  grid-template-columns: 120px 110px 150px 180px;
+  gap: 30px;
+  align-items: center;
+  justify-items: start;
+}
+
+/* =========================
+   BASE BADGE
+   ========================= */
+
+.badge {
+  min-width: 100%;
+  text-align: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background: #1f2937;
+  color: #e5e7eb;
+}
+
+/* =========================
+   STATUS
+   ========================= */
+
+.status-offen {
+  background: rgba(59,130,246,0.2);
+  color: #60a5fa;
+}
+
+.status-in_bearbeitung {
+  background: rgba(245,158,11,0.25);
+  color: #fbbf24;
+}
+
+.status-geschlossen {
+  background: rgba(16,185,129,0.25);
+  color: #6ee7b7;
+}
+
+/* =========================
+   CATEGORY
+   ========================= */
+
+.category-website {
+  background: rgba(99,102,241,0.25);
+  color: #a5b4fc;
+}
+
+.category-verwaltung_intern,
+.category-verwaltung_ext {
+  background: rgba(148,163,184,0.25);
+  color: #e5e7eb;
+}
+
+.category-hosting {
+  background: rgba(56,189,248,0.25);
+  color: #7dd3fc;
+}
+
+.category-wartung {
+  background: rgba(34,197,94,0.25);
+  color: #86efac;
+}
+
+.category-fehler {
+  background: rgba(239,68,68,0.3);
+  color: #fecaca;
+}
+
+.category-spam {
+  background: rgba(71,85,105,0.35);
+  color: #94a3b8;
+}
+
+/* =========================
+   PRIORITY
+   ========================= */
+
+.priority-niedrig {
+  background: rgba(148,163,184,0.25);
+  color: #cbd5f5;
+}
+
+.priority-normal {
+  background: rgba(34,197,94,0.25);
+  color: #86efac;
+}
+
+.priority-hoch {
+  background: rgba(245,158,11,0.3);
+  color: #fcd34d;
+}
+
+.priority-kritisch {
+  background: rgba(239,68,68,0.35);
+  color: #fecaca;
+}
+
+/* =========================
+   ASSIGNEE
+   ========================= */
+
+.assignee {
+  background: rgba(255,255,255,0.08);
+  color: #e5e7eb;
+}
+.ticket-row {
+  overflow: hidden;        /* ❗ verhindert Überstehen */
+}
+.ticket-category-filter,
+.ticket-priority-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 180px;
+}
+
+.ticket-category-filter-label,
+.ticket-priority-filter-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+}
+
+.ticket-category-filter-select,
+.ticket-priority-filter-select {
+  background: #020617;
+  border: 1px solid #1e293b;
+  color: #e5e7eb;
+  padding: 0.45rem 0.65rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+.ticket-unread-icon {
+  margin-left: 8px;
+  display: inline-flex;
+  align-items: center;
+  color: #ffd966;
+}
+
+.ticket-unread-svg {
+  filter: drop-shadow(0 0 6px rgba(255, 217, 102, 0.6));
 }

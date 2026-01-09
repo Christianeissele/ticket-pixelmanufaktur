@@ -1,0 +1,468 @@
+.page {
+  background: #0b1220;
+  min-height: 100vh;
+  color: #e5e7eb;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 2rem;
+}
+
+.meta {
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+
+.actionBar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.actionGroup {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.primary {
+  background: #2563eb;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  border-radius: 6px;
+}
+
+.secondary {
+  background: #020617;
+  border: 1px solid #1e293b;
+  padding: 0.5rem 0.75rem;
+  color: #e5e7eb;
+  border-radius: 6px;
+}
+
+.ghost {
+  background: transparent;
+  border: 1px dashed #334155;
+  color: #94a3b8;
+  padding: 0.5rem;
+}
+
+.danger {
+  background: #7f1d1d;
+  color: white;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+}
+
+.select,
+.input {
+  background: #020617;
+  border: 1px solid #1e293b;
+  color: #e5e7eb;
+  padding: 0.4rem;
+  border-radius: 6px;
+}
+
+.history,
+.messages,
+.reply {
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.messageCustomer {
+  background: #020617;
+  border: 1px solid #1e293b;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.messageSupport {
+  background: #0b1c2d;
+  border: 1px solid #1e293b;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 80px;
+  background: #020617;
+  color: #e5e7eb;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 0.5rem;
+}
+
+.replyActions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.messageText {
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+/* ================= MODAL OVERLAY ================= */
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.75);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+/* ================= MODAL BOX ================= */
+
+.modal {
+  width: 100%;
+  max-width: 560px;
+  background: linear-gradient(
+    180deg,
+    #020617 0%,
+    #020617 60%,
+    #01040d 100%
+  );
+  border: 1px solid #1e293b;
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.5),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+/* ================= MODAL HEADER ================= */
+
+.modal h2 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+/* ================= TEXTAREA ================= */
+
+.modalTextarea {
+  width: 100%;
+  min-height: 180px;
+  background: #020617;
+  color: #e5e7eb;
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+  resize: vertical;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.modalTextarea::placeholder {
+  color: #64748b;
+}
+
+.modalTextarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.4);
+}
+
+/* ================= ACTION BUTTONS ================= */
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* Reuse existing button styles */
+.modalActions .primary {
+  min-width: 140px;
+}
+
+.modalActions .secondary {
+  min-width: 110px;
+}
+
+/* ================= SMALL SCREENS ================= */
+
+@media (max-width: 640px) {
+  .modal {
+    margin: 1rem;
+    padding: 1.25rem;
+  }
+
+  .modalTextarea {
+    min-height: 140px;
+  }
+}
+/* ================= MAIL META BLOCK ================= */
+
+.mailMeta {
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Einzelne Zeilen (Firma / An / Betreff) */
+.mailRow {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+}
+
+.mailRow:last-child {
+  margin-bottom: 0;
+}
+
+.mailRow label {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Inputs im Mail-Bereich */
+.mailRow input {
+  background: #020617;
+  border: 1px solid #1e293b;
+  color: #e5e7eb;
+  border-radius: 6px;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.85rem;
+}
+
+.mailRow input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.35);
+}
+
+/* Readonly / Disabled */
+.mailRow input[readonly],
+.mailRow input:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* ================= MODAL FOOTER ================= */
+
+.modalFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.9rem;
+  gap: 1rem;
+}
+
+/* ================= VISUAL POLISH ================= */
+
+/* Leichte Trennung zwischen Meta & Text */
+.modalTextarea {
+  margin-top: 0.5rem;
+}
+
+/* Buttons unten leicht absetzen */
+.modalActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 640px) {
+  .mailRow {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .mailRow label {
+    font-size: 0.65rem;
+  }
+}
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.closeTicket {
+  background: #dc2626; /* rot */
+  color: white;
+  border: none;
+  padding: 0.55rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+
+.closeTicket:hover {
+  background: #b91c1c;
+}
+
+.closeTicket:active {
+  transform: scale(0.97);
+}
+/* =========================
+   ZEIT / TIMER
+   ========================= */
+
+.timeSection {
+  margin-top: 32px;
+  padding: 20px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #0f172a, #020617);
+  border: 1px solid #1e293b;
+}
+
+.timeSection h2 {
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+/* ===== Zeit-Historie ===== */
+
+.timeList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.timeList li {
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  background: #020617;
+  border: 1px solid #1e293b;
+  font-size: 14px;
+  color: #cbd5f5;
+}
+
+/* ===== Timer Anzeige ===== */
+
+.timerControls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.timerDisplay {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #22c55e;
+  background: #020617;
+  border: 1px solid #14532d;
+  padding: 10px 16px;
+  border-radius: 12px;
+  min-width: 110px;
+  text-align: center;
+}
+
+/* ===== Buttons ===== */
+
+.timerControls button {
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s ease;
+}
+
+/* Start */
+.timerControls button:first-of-type {
+  background: #16a34a;
+  color: white;
+}
+
+.timerControls button:first-of-type:hover {
+  background: #15803d;
+}
+
+/* Stop */
+.timerControls button:nth-of-type(2) {
+  background: #eab308;
+  color: #020617;
+}
+
+.timerControls button:nth-of-type(2):hover {
+  background: #ca8a04;
+}
+
+/* Speichern */
+.timerControls button:nth-of-type(3) {
+  background: #2563eb;
+  color: white;
+}
+
+.timerControls button:nth-of-type(3):hover {
+  background: #1d4ed8;
+}
+/* =========================
+   CATEGORY SELECT
+   ========================= */
+
+.categorySelect {
+  background: #020617;
+  border: 1px solid #1e293b;
+  color: #e5e7eb;
+  padding: 0.45rem 0.65rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  min-width: 170px;
+}
+
+/* Hover */
+.categorySelect:hover {
+  border-color: #334155;
+}
+
+/* Focus */
+.categorySelect:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.4);
+}
+
+/* Optionen */
+.categorySelect option {
+  background: #020617;
+  color: #e5e7eb;
+}

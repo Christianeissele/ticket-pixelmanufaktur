@@ -1,0 +1,113 @@
+.page {
+  min-height: 100vh;
+  padding: 2.5rem 1.5rem;
+  background: radial-gradient(
+    ellipse at top,
+    #020617 0%,
+    #000000 70%
+  );
+  color: #e5e7eb;
+}
+
+.container {
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.topBar {
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 1.9rem;
+  font-weight: 600;
+}
+
+.card {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 16px;
+  padding: 1.4rem;
+  backdrop-filter: blur(14px);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.item {
+  background: rgba(2, 6, 23, 0.6);
+  border-left: 4px solid #3b82f6;
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+}
+
+.meta {
+  font-size: 0.75rem;
+  color: #93c5fd;
+  margin-bottom: 0.5rem;
+}
+
+.content {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.empty {
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+.editorCard {
+  margin-top: 2rem;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 16px;
+  padding: 1.4rem;
+}
+
+.editorTitle {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 180px;
+  resize: vertical;
+  border-radius: 12px;
+  padding: 0.8rem;
+  background: rgba(2, 6, 23, 0.75);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  color: #e5e7eb;
+  font-size: 0.95rem;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: #60a5fa;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.9rem;
+}
+
+.primary {
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.primary:hover {
+  filter: brightness(1.12);
+}

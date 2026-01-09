@@ -1,0 +1,115 @@
+.page {
+  min-height: 100vh;
+  padding: 2.5rem 1.5rem;
+  background: radial-gradient(
+    ellipse at top,
+    #0f172a 0%,
+    #020617 70%
+  );
+  color: #e5e7eb;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.topBar {
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.card {
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 14px;
+  padding: 1.25rem;
+  backdrop-filter: blur(12px);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.item {
+  background: rgba(2, 6, 23, 0.55);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+}
+
+.meta {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-bottom: 0.4rem;
+}
+
+.content {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+.empty {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  padding: 0.5rem 0;
+}
+
+.editorCard {
+  margin-top: 1.8rem;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 14px;
+  padding: 1.25rem;
+}
+
+.editorTitle {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 140px;
+  resize: vertical;
+  border-radius: 10px;
+  padding: 0.75rem;
+  background: rgba(2, 6, 23, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  color: #e5e7eb;
+  font-size: 0.95rem;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.8rem;
+}
+
+.primary {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.primary:hover {
+  filter: brightness(1.1);
+}

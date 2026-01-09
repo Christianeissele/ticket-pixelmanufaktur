@@ -1,0 +1,98 @@
+/* ================= BADGE GRID (TABELLENOPTIK) ================= */
+
+.ticket-badges-grid {
+  display: grid;
+  grid-template-columns: 180px 220px 160px 160px;
+  gap: 16px;
+  align-items: center;
+}
+
+/* ================= BASIS BADGE ================= */
+
+.badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 36px;
+  padding: 0 18px;
+
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  background: rgba(255, 255, 255, 0.06);
+  color: #e5e7eb;
+
+  white-space: nowrap;
+}
+
+/* ================= STATUS ================= */
+
+.status-offen {
+  background: rgba(59, 130, 246, 0.25);
+  color: #93c5fd;
+}
+
+.status-in_bearbeitung {
+  background: rgba(245, 158, 11, 0.28);
+  color: #fbbf24;
+}
+
+.status-geschlossen {
+  background: rgba(16, 185, 129, 0.28);
+  color: #6ee7b7;
+}
+
+/* ================= CATEGORY ================= */
+
+.category-website {
+  background: rgba(99, 102, 241, 0.25);
+  color: #a5b4fc;
+}
+
+.category-verwaltung_intern {
+  background: rgba(148, 163, 184, 0.25);
+  color: #e5e7eb;
+}
+
+.category-hosting {
+  background: rgba(14, 165, 233, 0.25);
+  color: #7dd3fc;
+}
+
+.category-fehler {
+  background: rgba(239, 68, 68, 0.25);
+  color: #fca5a5;
+}
+
+/* ================= PRIORITÄT ================= */
+
+.priority-niedrig {
+  background: rgba(34, 197, 94, 0.25);
+  color: #86efac;
+}
+
+.priority-normal {
+  background: rgba(148, 163, 184, 0.25);
+  color: #e5e7eb;
+}
+
+.priority-hoch {
+  background: rgba(245, 158, 11, 0.3);
+  color: #fbbf24;
+}
+
+.priority-kritisch {
+  background: rgba(239, 68, 68, 0.35);
+  color: #fecaca;
+}
+
+/* ================= ASSIGNEE ================= */
+
+.badge.assignee {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f9fafb;
+}

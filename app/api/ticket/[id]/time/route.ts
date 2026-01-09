@@ -1,12 +1,14 @@
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import { supabaseAdmin } from "@/app/lib/supabase-admin";
 
 export async function POST(
-  req: Request,
-  { params }: { params: { id: string } }
-) {
+  req: NextRequest,
+  context: { params: Promise<{ id: string }> }
+): Promise<Response> {
   try {
-    const ticketId = params.id;
+    // ✅ params korrekt awaiten (WICHTIG)
+    const { id: ticketId } = await context.params;
+
     const body = await req.json();
     const { duration_seconds } = body;
 

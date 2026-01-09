@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
 const supabaseAdmin = createClient(
@@ -7,11 +7,12 @@ const supabaseAdmin = createClient(
 );
 
 export async function POST(
-  req: Request,
-  { params }: { params: { id: string } } // ✅ KEIN Promise
-) {
+  req: NextRequest,
+  context: { params: Promise<{ id: string }> }
+): Promise<Response> {
   try {
-    const ticketId = params.id; // ✅ direkt lesen
+    // ✅ params IMMER awaiten (Next.js 16!)
+    const { id: ticketId } = await context.params;
 
     if (!ticketId) {
       return NextResponse.json(
